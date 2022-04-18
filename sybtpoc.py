@@ -77,7 +77,7 @@ def ask():
         userAns = str(input("> ")).upper()
 
         # if user's answer is invalid, ask them to answer again
-        while userAns not in ["Y", "N"]:
+        while userAns not in ['Y', 'N']:
             print("Please type [Y] or [N]")
             userAns = str(input("> ")).upper()
 
