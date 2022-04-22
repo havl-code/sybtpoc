@@ -54,11 +54,11 @@ def about():
 def ask():
     print("=========================================")
 
-    # ask for the item that the user is considering buying
+    #user input the item's name
     print("What is this piece of clothing that you are considering buying? (e.g., skirt)")
     userItem = str(input("> ")).capitalize()
 
-    # create list of questions, grade of item, genereate a list of question in random order, set question position
+    #list of questions
     questionsList = ['Does it fit your style concept?', 'Do you like the fit and fabric?', 'Can you think of at least 3 outfits to wear it with?',
                      'Is this item comfortable?', 'Was this made responsibly?', 'Is this something you truly love?', 'Will you want to wear this next year?',
                      'Will this go with other pieces in your wardrobe?', 'You are not buying this just because it is on sale, right?',
@@ -69,19 +69,19 @@ def ask():
 
     randomQuestions = random.sample(questionsList, len(questionsList))
 
-    # loop to print question one by one
+    #interation
     for q in range(len(randomQuestions)):
         print("-----------------------------------------")
         q = randomQuestions[questionPos]
         print(q)
         userAns = str(input("> ")).upper()
 
-        # if user's answer is invalid, ask them to answer again
+        #check if user item is valid or not
         while userAns not in ['Y', 'N']:
             print("Please type [Y] or [N]")
             userAns = str(input("> ")).upper()
 
-        # calculate item's grade based on user's answers
+        #selection
         if userAns == "Y":
             itemGrade += 10
         elif userAns == "N":
