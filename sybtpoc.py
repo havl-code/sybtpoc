@@ -89,6 +89,10 @@ def ask():
 
         questionPos += 1
 
+    result(userItem, itemGrade)
+
+def result(userItem, itemGrade):
+
     # print result and recommendation
     print("_________________________________________")
     print(userItem, "got", itemGrade, "scores")
