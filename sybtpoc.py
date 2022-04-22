@@ -38,7 +38,7 @@ def about():
 
     # create a list of sentences
     table = [["10 questions will be shown."], ["You need to answer each question by typing in [Y] (YES) or [N] (NO)."],
-             ["Your item grade will be graded based on your answers."], 
+             ["Your item grade will be graded based on your answers."],
              ["If your item's grade is greater than or equal to 50 scores, you should buy this piece of clothing."],
              ["Otherwise, you should not buy it."], ["Have a nice experience using this program!"]]
     header = ["How does this work?"]
@@ -54,11 +54,11 @@ def about():
 def ask():
     print("=========================================")
 
-    #user input the item's name
+    # user input the item's name
     print("What is this piece of clothing that you are considering buying? (e.g., skirt)")
     userItem = str(input("> ")).capitalize()
 
-    #list of questions
+    # list of questions
     questionsList = ['Does it fit your style concept?', 'Do you like the fit and fabric?', 'Can you think of at least 3 outfits to wear it with?',
                      'Is this item comfortable?', 'Was this made responsibly?', 'Is this something you truly love?', 'Will you want to wear this next year?',
                      'Will this go with other pieces in your wardrobe?', 'You are not buying this just because it is on sale, right?',
@@ -69,19 +69,19 @@ def ask():
 
     randomQuestions = random.sample(questionsList, len(questionsList))
 
-    #interation
+    # interation
     for q in range(len(randomQuestions)):
         print("-----------------------------------------")
         q = randomQuestions[questionPos]
         print(q)
         userAns = str(input("> ")).upper()
 
-        #check if user item is valid or not
+        # check if user item is valid or not
         while userAns not in ['Y', 'N']:
             print("Please type [Y] or [N]")
             userAns = str(input("> ")).upper()
 
-        #selection
+        # selection
         if userAns == "Y":
             itemGrade += 10
         elif userAns == "N":
@@ -89,7 +89,10 @@ def ask():
 
         questionPos += 1
 
+    print("=========================================")
+    print("Thank you for your answers! Here is the result:")
     result(userItem, itemGrade)
+
 
 def result(userItem, itemGrade):
 
