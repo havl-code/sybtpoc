@@ -100,6 +100,7 @@ def result(userItem, itemGrade):
     print("_________________________________________")
     print(userItem, "got", itemGrade, "scores")
 
+    #give recommendation based on itemGrade using if,elif,else
     if itemGrade >= 80:
         print("You should buy", userItem,
               ",you are going to look stunning in it!")
