@@ -37,14 +37,27 @@ def about():
     print("=========================================")
 
     # create a list of sentences
-    table = [["10 questions will be shown."], ["You need to answer each question by typing in [Y] (YES) or [N] (NO)."],
-             ["Your item grade will be graded based on your answers."],
-             ["If your item's grade is greater than or equal to 50 scores, you should buy this piece of clothing."],
-             ["Otherwise, you should not buy it."], ["Have a nice experience using this program!"]]
-    header = ["How does this work?"]
+    # header = ["How does this work?"]
+    print("How does this work?")
 
-    # create a table of instruction
-    print(tabulate(table, header, tablefmt="psql", stralign="left"))
+    guide = ["10 questions will be shown.", "You need to answer each question by typing in [Y] (YES) or [N] (NO).",
+             "Your item grade will be graded based on your answers.",
+             "If your item's grade is greater than or equal to 50 scores, you should buy this piece of clothing.",
+             "Otherwise, you should not buy it.", "Have a nice experience using this program!"]
+
+    print("-----------------------------------------")
+
+    header = ["Score", "Advice"]
+    table = [["0 < item's grade < 50", "You should not buy this item, save your money for a better item."],
+             ["50 <= item's grade < 80",
+                 "You may buy this item but check if there is any better option first."],
+             ["80 < item's grade <= 100", "You should definitely buy this item!"]]
+
+    # print instruction
+    print(*guide, sep="\n")
+
+    # print scoreboard
+    print(tabulate(table, header, tablefmt="grid", stralign="center"))
 
     # call def goodbye()
     goodbye()
@@ -69,9 +82,10 @@ def ask():
 
     randomQuestions = random.sample(questionsList, len(questionsList))
 
-    # interation
+    # iteration
     for q in range(len(randomQuestions)):
         print("-----------------------------------------")
+        # sequencing
         q = randomQuestions[questionPos]
         print(q)
         userAns = str(input("> ")).upper()
@@ -87,6 +101,7 @@ def ask():
         elif userAns == "N":
             itemGrade += 0
 
+        # sequencing
         questionPos += 1
 
     print("=========================================")
@@ -100,7 +115,7 @@ def result(userItem, itemGrade):
     print("_________________________________________")
     print(userItem, "got", itemGrade, "scores")
 
-    #give recommendation based on itemGrade using if,elif,else
+    # give recommendation based on itemGrade using if,elif,else
     if itemGrade >= 80:
         print("You should buy", userItem,
               ",you are going to look stunning in it!")
